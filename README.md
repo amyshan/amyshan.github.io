@@ -1,8 +1,8 @@
 ##Personal Website for Amy Shan
-Navigate through my projects, resume, and portfolio.
+Navigate through my projects, resume, and portfolio.  
 
 ##Contact Me
-Amy Shan
-B.S. Electrical Engineering and Computer Science
-University of California, Berkeley
-amyshan@berkeley.edu | (562)261-3672
+Amy Shan  
+B.S. Electrical Engineering and Computer Science  
+University of California, Berkeley  
+amyshan@berkeley.edu | (562)261-3672  
