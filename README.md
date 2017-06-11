@@ -1,4 +1,4 @@
-#Personal Website for Amy Shan
+##Personal Website for Amy Shan
 Navigate through my projects, resume, and portfolio.
 
 ##Contact Me
