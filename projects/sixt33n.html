@@ -1,10 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <title>Amy Shan - Sixt33n Car</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="../vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/creative.min.css" rel="stylesheet">
+
+    <!-- Temporary navbar container fix -->
+    <style>
+        .navbar-toggler {
+            z-index: 1;
+        }
+
+        @media (max-width: 576px) {
+            nav > .container {
+                width: 100%;
+            }
+        }
+    </style>
+
 </head>
-<body>
+
+<body id="page-top">
+
+<!-- Navigation -->
+<nav class="navbar fixed-top navbar-toggleable-md bg-primary" id="mainNav">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="container">
+        <a class="navbar-brand" href="../index.html">Amy Shan</a>
+        <div class="collapse navbar-collapse" id="navbarExample">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../files/Resume.pdf" target="_blank">Resume</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html#portfolio">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="contact" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <h2 class="section-heading">Sixt33n Car</h2>
+                <h5 style="font-style: italic">Class Project</h5>
+                <hr class="primary">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-left">
+                <h6 style="font-weight: bold">Project Background</h6>
+                <p style="font-size: small">
+                    In Fall 2016, I took the second part of Designing Information Devices and Systems, our two-part
+                    foundation series for electrical engineering. Our final project was to apply the design concepts
+                    we learned in the course to build a voice-controlled car, called the
+                    <a href="https://inst.eecs.berkeley.edu/~ee16b/sp16/proj/">Sixt33n Car</a>.
+                </p>
+                <h6 style="font-weight: bold">Circuit Design</h6>
+                <p style="font-size: small">
+                    The first stage of our design was the front-end of the circuit, in which we took in the signal from
+                    the microphone and filtered it to the proper frequency and voltage for the MSP to process. From
+                    the output of the mic board we used a low-pass filter -> buffer -> low-pass filter -> buffer ->
+                    amplifier -> op-amp that caps off within range of the MSP’s tolerance.
+                </p>
+                <p style="font-size: small">
+                    The next stage was the battery and voltage regulator. We ran the car off two 9V batteries, one of
+                    which powered the motors and the other which powered the voltage regulator, MSP, front-end
+                    circuit, and wheel encoders. The voltage regulator, which takes in the 9V input from the battery,
+                    lowers it to 5V before passing that value into the 5V rail that powers the front-end circuit and
+                    MSP.
+                </p>
+                <p style="font-size: small">
+                    The second battery powered the motors. For each motor, an NPM BJT
+                    used the current from the MSP to control the switch that let power flow to the motor, which was
+                    connected to our circuit through a diode. The diode served to protest the BJT, which is prevented
+                    from burnout with a 2kΩ resistor to soften the current. Lastly we connected wheel encoders to the
+                    MSP in order to collect data for our control schema.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-left">
+                <h6 style="font-weight: bold">Speech Processing and Classification</h6>
+                <p style="font-size: small">
+                    Since our car was voice-controlled, we had to program words as commands for the car to recognize and
+                    execute appropriately. We chose:
+                </p>
+                    <ul style="font-size: small">
+                        <li>“Amy” – slow straight</li>
+                        <li>“Wao” – fast straight</li>
+                        <li>“PCA” – turn right</li>
+                        <li>“Marique” – turn left</li>
+                    </ul>
+                <p style="font-size: small">
+                    We initially used words we thought would be more fitting for each command, or words that were funny,
+                    but we realized those wouldn’t work soon after we ran our PCA classification algorithm on our samples
+                    and had nearly identical graphs and an overall random pattern in the clustering. We then decided to
+                    opt for words with distinct syllables of varying length and tried to record voice samples with as
+                    little variance in intonation and background noise as possible, which significantly improved
+                    our clustering. We also recorded a large collection of various words (~10) and swapped them out in
+                    different combinations to arrive at a 90%+ accuracy in classification.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 </body>
 </html>
